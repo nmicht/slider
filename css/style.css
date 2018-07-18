@@ -1,5 +1,9 @@
+* {
+    --standard-width: 600px;
+}
+
 .slider {
-    width: 700px;
+    width: var(--standard-width);
     margin: 0 auto;
     list-style-type: none;
 }
