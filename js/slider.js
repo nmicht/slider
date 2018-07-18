@@ -1,29 +1,26 @@
-const Slider = (function () {
-    const slides = document.getElementsByTagName('li');
-    let currentSlide = 0;
+class Slider {
+    constructor(currentSlide, slides) {
+        this.slides = slides;
+        this.currentSlide = currentSlide;
+    }
 
-    const next = function () {
-        slides[currentSlide].classList.toggle('visible');
-        if (currentSlide < slides.length - 1) {
-            currentSlide += 1;
+    next() {
+        this.slides[this.currentSlide].classList.toggle('visible');
+        if (this.currentSlide < this.slides.length - 1) {
+            this.currentSlide += 1;
         } else {
-            currentSlide = 0;
+            this.currentSlide = 0;
         }
-        slides[currentSlide].classList.toggle('visible');
-    };
+        this.slides[this.currentSlide].classList.toggle('visible');
+    }
 
-    const prev = function () {
-        slides[currentSlide].classList.toggle('visible');
-        if (currentSlide > 0) {
-            currentSlide -= 1;
+    prev() {
+        this.slides[this.currentSlide].classList.toggle('visible');
+        if (this.currentSlide > 0) {
+            this.currentSlide -= 1;
         } else {
-            currentSlide = slides.length - 1;
+            this.currentSlide = this.slides.length - 1;
         }
-        slides[currentSlide].classList.toggle('visible');
-    };
-
-    return {
-        next,
-        prev,
-    };
-}());
+        this.slides[this.currentSlide].classList.toggle('visible');
+    }
+}

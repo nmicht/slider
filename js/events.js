@@ -1,10 +1,14 @@
-const nextNode = document.getElementById('next');
-const prevNode = document.getElementById('prev');
+function domSlider(idSlider) {
+    const slider = new Slider(0, document.querySelectorAll(`#${idSlider} li`));
+    const nextNode = document.querySelector(`#${idSlider} .next`);
+    const prevNode = document.querySelector(`#${idSlider} .prev`);
+    nextNode.onclick = function () {
+        slider.next();
+    };
+    prevNode.onclick = function () {
+        slider.prev();
+    };
+}
 
-nextNode.onclick = function () {
-    Slider.next();
-};
-
-prevNode.onclick = function () {
-    Slider.prev();
-};
+domSlider('top-slider');
+domSlider('mid-slider');
