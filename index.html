@@ -24,7 +24,34 @@
             <button type="button" class="next">Next</button>
         </ul>
 
+        <ul id="bottom-slider" class="slider">
+            <button type="button" class="prev">Prev</button>
+            <button type="button" class="next">Next</button>
+        </ul>
+
         <script src="js/slider.js"></script>
         <script src="js/events.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+                let images = JSON.parse('[{"name": "Toxic Rick","url": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"},{"name": "Morty Smith", "url": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"}]');
+
+                console.log(images);
+
+                let bottomSliderNode = document.getElementById('bottom-slider');
+
+                images.forEach(function(img, index){
+                    let liNode = document.createElement('li');
+                    liNode.classList.add('slide');
+                    if(index == 0){
+                        liNode.classList.add('visible');
+                    }
+                    let imgNode = document.createElement('img');
+                    imgNode.setAttribute('src', img.url);
+                    imgNode.setAttribute('alt', img.name);
+                    liNode.appendChild(imgNode);
+                    bottomSliderNode.appendChild(liNode);
+                });
+            });
+        </script>
     </body>
 </html>

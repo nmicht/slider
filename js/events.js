@@ -12,3 +12,4 @@ function domSlider(idSlider) {
 
 domSlider('top-slider');
 domSlider('mid-slider');
+domSlider('bottom-slider');

@@ -2,6 +2,13 @@
     --standard-width: 600px;
 }
 
+body,
+html,
+ul{
+    margin: 0;
+    padding: 0;
+}
+
 .slider {
     width: var(--standard-width);
     margin: 0 auto;
@@ -10,6 +17,10 @@
 
 .slide {
     display: none;
+}
+
+.slide img {
+    width: 100%;
 }
 
 .visible {
