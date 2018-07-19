@@ -32,7 +32,9 @@
         <script src="js/slider.js"></script>
         <script src="js/events.js"></script>
         <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", createImgs(domSlider));
+
+            function createImgs(cb) {
                 let images = JSON.parse('[{"name": "Toxic Rick","url": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"},{"name": "Morty Smith", "url": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"}]');
 
                 console.log(images);
@@ -51,7 +53,9 @@
                     liNode.appendChild(imgNode);
                     bottomSliderNode.appendChild(liNode);
                 });
-            });
+
+                cb('bottom-slider');
+            }
         </script>
     </body>
 </html>
