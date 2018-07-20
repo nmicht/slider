@@ -32,30 +32,41 @@
         <script src="js/slider.js"></script>
         <script src="js/events.js"></script>
         <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", createImgs(domSlider));
 
-            function createImgs(cb) {
-                let images = JSON.parse('[{"name": "Toxic Rick","url": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"},{"name": "Morty Smith", "url": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"}]');
+                const myPromise = new Promise((resolve, reject) => {
+                // cagadero sin orden aqui
 
-                console.log(images);
-
-                let bottomSliderNode = document.getElementById('bottom-slider');
-
-                images.forEach(function(img, index){
-                    let liNode = document.createElement('li');
-                    liNode.classList.add('slide');
-                    if(index == 0){
-                        liNode.classList.add('visible');
+                    let images = JSON.parse('[]');
+console.log(images);
+                    if(images.length < 1){
+                        reject('no hay putas imagenes');
                     }
-                    let imgNode = document.createElement('img');
-                    imgNode.setAttribute('src', img.url);
-                    imgNode.setAttribute('alt', img.name);
-                    liNode.appendChild(imgNode);
-                    bottomSliderNode.appendChild(liNode);
+                    let bottomSliderNode = document.getElementById('bottom-slider');
+
+                    images.forEach(function(img, index){
+                        let liNode = document.createElement('li');
+                        liNode.classList.add('slide');
+                        if(index == 0){
+                            liNode.classList.add('visible');
+                        }
+                        let imgNode = document.createElement('img');
+                        imgNode.setAttribute('src', img.url);
+                        imgNode.setAttribute('alt', img.name);
+                        liNode.appendChild(imgNode);
+                        bottomSliderNode.appendChild(liNode);
+                    });
+
+                    resolve('termine bien vergas')
                 });
 
-                cb('bottom-slider');
-            }
+                myPromise.then((msg) => {
+                    console.log(msg);
+                    domSlider('bottom-slider');
+                });
+
+                myPromise.catch(() => {
+                    console.log('NO HE TERMINADO');
+                });
         </script>
     </body>
 </html>
