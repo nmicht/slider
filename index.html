@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Slider</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -34,10 +34,8 @@
         <script type="text/javascript">
 
                 const myPromise = new Promise((resolve, reject) => {
-                // cagadero sin orden aqui
+                    let images = JSON.parse('[{"name": "Toxic Rick","url": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"},{"name": "Morty Smith", "url": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"}]');
 
-                    let images = JSON.parse('[]');
-console.log(images);
                     if(images.length < 1){
                         reject('no hay putas imagenes');
                     }

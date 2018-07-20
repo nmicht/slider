@@ -10,9 +10,9 @@ ul{
 }
 
 .slider {
-    width: var(--standard-width);
-    margin: 0 auto;
     list-style-type: none;
+    margin: 0 auto;
+    width: var(--standard-width);
 }
 
 .slide {
