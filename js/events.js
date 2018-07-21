@@ -17,17 +17,6 @@ function domSlider(idSlider) {
 domSlider('top-slider');
 domSlider('mid-slider');
 
-function getCharacters() {
-    let req = new XMLHttpRequest();
-    req.open('POST', 'https://rickandmortyapi.com/api/character/');
-    req.onreadystatechange = function () {
-        if(req.readyState == 4) {
-            console.log(req.responseText);
-        }
-    }
-    req.send();
-}
-
 const myPromise = new Promise((resolve, reject) => {
     getCharacters();
     let images = JSON.parse('[{"name": "Toxic Rick","url": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"},{"name": "Morty Smith", "url": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"}]');
@@ -58,6 +47,6 @@ myPromise.then((msg) => {
     domSlider('bottom-slider');
 });
 
-myPromise.catch(() => {
-    console.log('NO HE TERMINADO');
+myPromise.catch((msg) => {
+    console.log(msg);
 });
